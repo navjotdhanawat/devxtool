@@ -1,0 +1,10 @@
+.wmde-markdown-color pre code {
+    position: initial;
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+
+.wmde-markdown-color pre::after ,.wmde-markdown-color pre::before {
+    content: none;
+}
