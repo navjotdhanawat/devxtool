@@ -4,7 +4,7 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-json'; // Language
 import 'prismjs/themes/prism-coy.css'; // Theme
 
-import { MouseEvent, useEffect, useState } from 'react';
+import { MouseEvent, useState } from 'react';
 
 import ReactDiff from 'react-diff-viewer-continued';
 import { AiFillFileAdd } from 'react-icons/ai';
@@ -44,10 +44,6 @@ const DiffChecker = (): JSX.Element => {
     return <span dangerouslySetInnerHTML={{ __html: language }} />;
   };
 
-  useEffect(() => {
-    // setShowDiff(0);
-  }, [oldContent, newContent]);
-
   const handleFileInputChange = (e: any, setContent: any, setFileName: any) => {
     const file = e.target.files[0];
     setFileName(file.name);
@@ -60,14 +56,14 @@ const DiffChecker = (): JSX.Element => {
   };
 
   return (
-    <>
+    <div>
       <div className="flex flex-row p-2 pb-4">
         <div className="form-control max-w-48 ml-auto">
           <label className="cursor-pointer label" htmlFor="splitView">
-            <span className="label-text text-gray-500">Split view</span>
+            <span className="label-text">Split view</span>
             <input
               type="checkbox"
-              className="toggle toggle-info ml-2 toggle-sm"
+              className="toggle ml-2 toggle-sm"
               checked={splitView}
               onChange={() => setSplitView(!splitView)}
             />
@@ -75,10 +71,10 @@ const DiffChecker = (): JSX.Element => {
         </div>
         <div className="form-control max-w-48">
           <label className="cursor-pointer label" htmlFor="syntaxHighlight">
-            <span className="label-text text-gray-500">Syntax Highlight</span>
+            <span className="label-text">Syntax Highlight</span>
             <input
               type="checkbox"
-              className="toggle toggle-info ml-2 toggle-sm"
+              className="toggle ml-2 toggle-sm"
               checked={isSyntaxHighlight}
               onChange={() => setIsSyntaxHighlight(!isSyntaxHighlight)}
             />
@@ -152,7 +148,7 @@ const DiffChecker = (): JSX.Element => {
       ) : (
         <></>
       )}
-    </>
+    </div>
   );
 };
 

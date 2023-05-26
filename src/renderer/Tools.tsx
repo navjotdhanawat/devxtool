@@ -22,7 +22,7 @@ export default function Tools() {
   ]);
 
   return (
-    <div className="p-3">
+    <div className="p-1">
       <ul>
         {devTools.map(({ name, icon, route }, index) => {
           const Icon = Icons[icon];
@@ -30,10 +30,10 @@ export default function Tools() {
           return (
             <li key={index}>
               <Link to={route}>
-                <h4 className="flex items-center relative mb-2 text-blue-600">
+                <h4 className="flex items-center relative mb-2 ">
                   <Icon className="text-md" />
                   <span className="ml-2 text-sm truncate w-28">{name}</span>
-                  <span className="ml-2 text-sm absolute right-2 text-gray-400" />
+                  <span className="ml-2 text-sm absolute right-2" />
                 </h4>
               </Link>
             </li>

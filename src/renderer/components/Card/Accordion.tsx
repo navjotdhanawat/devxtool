@@ -3,6 +3,7 @@ import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowDown,
 } from 'react-icons/md';
+import PropTypes from 'prop-types';
 
 interface IconProps {
   isOpen: boolean;
@@ -16,13 +17,18 @@ const AccordionIcon: React.FC<IconProps> = memo(({ isOpen }) => {
   );
 });
 
+AccordionIcon.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+};
+
 interface Props {
   title: string;
   children: React.ReactNode;
+  defaultIsOpen: boolean;
 }
 
-const Accordion: React.FC<Props> = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Accordion: React.FC<Props> = ({ title, children, defaultIsOpen }) => {
+  const [isOpen, setIsOpen] = useState(defaultIsOpen);
 
   return (
     <div className="relative rounded-md mb-3">
@@ -39,9 +45,7 @@ const Accordion: React.FC<Props> = ({ title, children }) => {
         </div>
       </button>
       {isOpen && (
-        <div className="px-1 py-1 text-left leading-5 text-gray-700">
-          {children}
-        </div>
+        <div className="px-1 py-1 text-left leading-5">{children}</div>
       )}
     </div>
   );

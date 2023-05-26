@@ -1,7 +1,6 @@
 import './style.css';
-import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import MDEditor, { selectWord } from '@uiw/react-md-editor';
+import React from 'react';
+import MDEditor from '@uiw/react-md-editor';
 import '@uiw/react-md-editor/dist/mdeditor.css';
 
 const mkdStr = `

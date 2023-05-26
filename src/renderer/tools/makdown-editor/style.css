@@ -7,4 +7,5 @@
 
 .wmde-markdown-color pre::after ,.wmde-markdown-color pre::before {
     content: none;
+    display: none;
 }

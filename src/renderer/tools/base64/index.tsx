@@ -7,15 +7,17 @@ const Base64Converter = () => {
   const [outputValue, setOutputValue] = useState('');
   const [isEncoding, setIsEncoding] = useState(true);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setInputValue(event.target.value);
   };
 
-  const handleRadioChange = (event) => {
+  const handleRadioChange = (event: { target: { value: string } }) => {
     setIsEncoding(event.target.value === 'encode');
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     if (isEncoding) {
       setOutputValue(encode(inputValue));
